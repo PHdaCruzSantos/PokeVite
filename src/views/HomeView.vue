@@ -26,7 +26,7 @@ const selectPokemon = async (pokemon) => {
     .then(res => res.json())
     .then(data => pokemonSelected.value = data)
 
-  console.log(pokemonSelected.value)
+    // console.log(pokemonSelected.value.types[0].type.name)
 }
 
 </script>
@@ -37,9 +37,11 @@ const selectPokemon = async (pokemon) => {
 
       <div class="row mt-4">
         <div class="col-sm-12 col-md-6">
-          <CardPokemons
+
+          <CardPokemons                                                                                                                                                                                                                                                                                                                                                                                                                                                                  
             :name="pokemonSelected?.name"
             :img="pokemonSelected?.sprites.other.dream_world.front_default"
+            :types="pokemonSelected?.types"
           />
         </div>
 
@@ -52,13 +54,13 @@ const selectPokemon = async (pokemon) => {
               <div class="input-group mb-3">
                 <span class="input-group-text" id="inputGroup-sizing-default">Search</span>
                 <input
-                v-model="searchPokemonField"
-                type="text"
-                class="form-control"
-                aria-label="Sizing example input"
-                aria-describedby="inputGroup-sizing-default" 
-                placeholder="Search Pokemon"
-                id="searchPokemonField"
+                  v-model="searchPokemonField"
+                  type="text"
+                  class="form-control"
+                  aria-label="Sizing example input"
+                  aria-describedby="inputGroup-sizing-default" 
+                  placeholder="Search Pokemon"
+                  id="searchPokemonField"
                 >
               </div>
               
@@ -68,6 +70,7 @@ const selectPokemon = async (pokemon) => {
                 :key="pomkemon.name"
                 :P_name="pomkemon.name"
                 :P_svg="urlBaseSvg + pomkemon.url.split('/')[6] + '.svg'"
+                :P_url="pomkemon.url"
                 @click="selectPokemon(pomkemon)"
               />
             </div>  
