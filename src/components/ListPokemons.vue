@@ -32,8 +32,4 @@ const pokemon = defineProps(['P_name', 'P_svg', 'P_url']) // props: ({ pokemonNa
 .--card:hover {
  text-transform: uppercase;
 }
-
-.grass {
-  border: 2px solid #78C850;
-}
 </style>
